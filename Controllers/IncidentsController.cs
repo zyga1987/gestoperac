@@ -17,17 +17,18 @@ namespace GestOperac.Controllers
         }
         // GET /Incidents
         [HttpGet]
-        public IEnumerable<IncidentDto> GetIncidents()
+        public async Task<IEnumerable<IncidentDto>> GetIncidentsAsync()
         {
-            var Incidents = repository.GetIncidents().Select(Incident => Incident.AsDto());
+            var Incidents = (await repository.GetIncidentsAsync())
+                            .Select(Incident => Incident.AsDto());
             return Incidents;
         }
 
         // GET /Incidents/{id}
         [HttpGet("{id}")]
-        public ActionResult<IncidentDto> GetIncident(Guid id)
+        public async Task<ActionResult<IncidentDto>> GetIncidentAsync(Guid id)
         {
-            var Incident = repository.GetIncident(id);
+            var Incident = await repository.GetIncidentAsync(id);
 
             if (Incident is null)
             {
@@ -39,7 +40,7 @@ namespace GestOperac.Controllers
 
         // POST /Incident
         [HttpPost]
-        public ActionResult<IncidentDto> CreateIncident(CreateIncidentDto IncidentDto)
+        public async Task<ActionResult<IncidentDto>> CreateIncidentAsync(CreateIncidentDto IncidentDto)
         {
             Incident Incident = new()
             {
@@ -49,15 +50,15 @@ namespace GestOperac.Controllers
 
             };
 
-            repository.CreateIncident(Incident);
-            return CreatedAtAction(nameof(GetIncident), new { id = Incident.Id}, Incident.AsDto());
+            await repository.CreateIncidentAsync(Incident);
+            return CreatedAtAction(nameof(GetIncidentAsync), new { id = Incident.Id}, Incident.AsDto());
         }
 
         // PUT /Incidents/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateIncident(Guid id, UpdateIncidentDto IncidentDto)
+        public async Task<ActionResult> UpdateIncidentAsync(Guid id, UpdateIncidentDto IncidentDto)
         {
-            var existingIncident = repository.GetIncident(id);
+            var existingIncident = await repository.GetIncidentAsync(id);
             if (existingIncident is null)
             {
                 return NotFound();
@@ -68,20 +69,20 @@ namespace GestOperac.Controllers
                 Description = IncidentDto.Description
             };
 
-            repository.UpdateIncident(updatedIncident);
+            await repository.UpdateIncidentAsync(updatedIncident);
             return NoContent();
         }
 
         // DELETE /items/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteIncident(Guid id)
+        public async Task<ActionResult> DeleteIncidentAsync(Guid id)
         {
-            var existingIncident = repository.GetIncident(id);
+            var existingIncident = await repository.GetIncidentAsync(id);
             if (existingIncident is null)
             {
                 return NotFound();
             }
-            repository.DeleteIncident(id); 
+            await repository.DeleteIncidentAsync(id); 
             return NoContent();
 
 

@@ -14,31 +14,35 @@ namespace GestOperac.Repositories
             }
         };
 
-        public IEnumerable<Incident> GetIncidents()
+        public async Task<IEnumerable<Incident>> GetIncidentsAsync()
         {
-            return incidents;
+            return await Task.FromResult(incidents);
         }
 
-        public Incident GetIncident(Guid id)
+        public async Task<Incident> GetIncidentAsync(Guid id)
         {
-            return incidents.Where(incident => incident.Id == id).SingleOrDefault();
+            var incident = incidents.Where(incident => incident.Id == id).SingleOrDefault();
+            return await Task.FromResult(incident);
         }
 
-        public void CreateIncident(Incident incident)
+        public async Task CreateIncidentAsync(Incident incident)
         {
             incidents.Add(incident);
+            await Task.CompletedTask;
         }
 
-        public void UpdateIncident(Incident incident)
+        public async Task UpdateIncidentAsync(Incident incident)
         {
             var index = incidents.FindIndex(existingIncident => existingIncident.Id == incident.Id);
             incidents[index] = incident;
+            await Task.CompletedTask;
         }
 
-        public void DeleteIncident(Guid Id)
+        public async Task DeleteIncidentAsync(Guid Id)
         {
             var index = incidents.FindIndex(existingIncident => existingIncident.Id == Id);
             incidents.RemoveAt(index);
+            await Task.CompletedTask;
 
         }
     }

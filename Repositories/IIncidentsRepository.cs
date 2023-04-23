@@ -6,11 +6,11 @@ namespace GestOperac.Repositories
 {
     public interface IIncidentsRepository
     {
-        Incident GetIncident(Guid id);
-        IEnumerable<Incident> GetIncidents();
-        void CreateIncident (Incident incident);
-        void UpdateIncident (Incident incident); 
-        void DeleteIncident (Guid id);
+        Task<Incident> GetIncidentAsync(Guid id);
+        Task<IEnumerable<Incident>> GetIncidentsAsync();
+        Task CreateIncidentAsync (Incident incident);
+        Task UpdateIncidentAsync (Incident incident);
+        Task DeleteIncidentAsync (Guid id);
 
     }
 }
