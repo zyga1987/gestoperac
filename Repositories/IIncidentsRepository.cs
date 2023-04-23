@@ -1,6 +1,8 @@
-﻿using Occurrence.Models;
+﻿
 
-namespace Occurrence.Repositories
+using GestOperac.Models;
+
+namespace GestOperac.Repositories
 {
     public interface IIncidentsRepository
     {

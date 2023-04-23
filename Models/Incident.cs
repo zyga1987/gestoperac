@@ -1,4 +1,4 @@
-namespace Occurrence.Models 
+namespace GestOperac.Models 
 {
     public record Incident
     {

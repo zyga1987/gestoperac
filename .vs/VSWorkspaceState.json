@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\bin",
     "\\Models",
     "\\Repositories"
   ],
-  "SelectedNode": "\\Occurence.csproj",
+  "SelectedNode": "\\Occurrence.csproj",
   "PreviewInSolutionExplorer": false
 }

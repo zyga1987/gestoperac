@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Occurrence.Dtos
+namespace GestOperac.Dtos
 {
     public record CreateIncidentDto
     {

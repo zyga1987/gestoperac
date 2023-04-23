@@ -1,4 +1,4 @@
-﻿namespace Occurrence.Configuration
+﻿namespace GestOperac.Configuration
 {
     public class MongoDbSettings
     {

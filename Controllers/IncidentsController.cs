@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using Occurrence;
-using Occurrence.Dtos;
-using Occurrence.Repositories;
-using Occurrence.Models;
+using GestOperac.Dtos;
+using GestOperac.Repositories;
+using GestOperac.Models;
 
-namespace Ocurrence.Controllers
+namespace GestOperac.Controllers
 {
     [ApiController]
-    [Route("incidents")]
+    [Route("Incidents")]
     public class IncidentsController : ControllerBase
     {
         private readonly IIncidentsRepository repository;
@@ -16,47 +15,47 @@ namespace Ocurrence.Controllers
         {
             this.repository = repository;
         }
-        // GET /incidents
+        // GET /Incidents
         [HttpGet]
         public IEnumerable<IncidentDto> GetIncidents()
         {
-            var incidents = repository.GetIncidents().Select(incident => incident.AsDto());
-            return incidents;
+            var Incidents = repository.GetIncidents().Select(Incident => Incident.AsDto());
+            return Incidents;
         }
 
-        // GET /incidents/{id}
+        // GET /Incidents/{id}
         [HttpGet("{id}")]
         public ActionResult<IncidentDto> GetIncident(Guid id)
         {
-            var incident = repository.GetIncident(id);
+            var Incident = repository.GetIncident(id);
 
-            if (incident is null)
+            if (Incident is null)
             {
                 return NotFound();
             }
-            return incident.AsDto();
+            return Incident.AsDto();
 
         }
 
-        // POST /incident
+        // POST /Incident
         [HttpPost]
-        public ActionResult<IncidentDto> CreateIncident(CreateIncidentDto incidentDto)
+        public ActionResult<IncidentDto> CreateIncident(CreateIncidentDto IncidentDto)
         {
-            Incident incident = new()
+            Incident Incident = new()
             {
                 Id = Guid.NewGuid(),
-                Description = incidentDto.Description,
+                Description = IncidentDto.Description,
                 CreatedDate = DateTime.UtcNow
 
             };
 
-            repository.CreateIncident(incident);
-            return CreatedAtAction(nameof(GetIncident), new { id = incident.Id}, incident.AsDto());
+            repository.CreateIncident(Incident);
+            return CreatedAtAction(nameof(GetIncident), new { id = Incident.Id}, Incident.AsDto());
         }
 
-        // PUT /incidents/{id}
+        // PUT /Incidents/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateIncident(Guid id, UpdateIncidentDto incidentDto)
+        public ActionResult UpdateIncident(Guid id, UpdateIncidentDto IncidentDto)
         {
             var existingIncident = repository.GetIncident(id);
             if (existingIncident is null)
@@ -66,7 +65,7 @@ namespace Ocurrence.Controllers
             
             Incident updatedIncident = existingIncident with
             {
-                Description = incidentDto.Description
+                Description = IncidentDto.Description
             };
 
             repository.UpdateIncident(updatedIncident);

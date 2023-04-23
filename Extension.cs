@@ -1,10 +1,10 @@
-﻿using Occurrence.Dtos;
-using Occurrence.Models;
+﻿using GestOperac.Dtos;
+using GestOperac.Models;
 using static System.Collections.Specialized.BitVector32;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Occurrence
+namespace GestOperac
 {
     public static class Extension
     {

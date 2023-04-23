@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Connections;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using Occurrence.Models;
+using GestOperac.Models;
 using System.Runtime.CompilerServices;
 
-namespace Occurrence.Repositories
+namespace GestOperac.Repositories
 {
     public class MongoDbIncidentsRepository : IIncidentsRepository
     {

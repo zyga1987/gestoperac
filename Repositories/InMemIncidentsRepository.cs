@@ -1,6 +1,6 @@
-using Occurrence.Models;
+using GestOperac.Models;
 
-namespace Occurrence.Repositories
+namespace GestOperac.Repositories
 {
     public class InMemIncidentsRepository : IIncidentsRepository
     {

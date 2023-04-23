@@ -1,4 +1,4 @@
-﻿namespace Occurrence.Dtos
+﻿namespace GestOperac.Dtos
 {
     public record IncidentDto
     {
