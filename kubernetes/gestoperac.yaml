@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: gestoperac
-        image: ispy02/gestoperac:v1
+        image: ispy02/gestoperac:v2
         resources:
           limits:
             memory: "128Mi"

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using GestOperac.Dtos;
 using GestOperac.Repositories;
 using GestOperac.Models;
+using System;
 
 namespace GestOperac.Controllers
 {
@@ -10,10 +11,12 @@ namespace GestOperac.Controllers
     public class IncidentsController : ControllerBase
     {
         private readonly IIncidentsRepository repository;
+        private readonly ILogger<IncidentsController> logger;
 
-        public IncidentsController(IIncidentsRepository repository)
+        public IncidentsController(IIncidentsRepository repository,ILogger<IncidentsController> logger)
         {
             this.repository = repository;
+            this.logger = logger;
         }
         // GET /Incidents
         [HttpGet]
@@ -21,6 +24,7 @@ namespace GestOperac.Controllers
         {
             var Incidents = (await repository.GetIncidentsAsync())
                             .Select(Incident => Incident.AsDto());
+            logger.LogInformation($"{DateTimeOffset.UtcNow.ToString("hh:mm:ss")}: Retrieved {Incidents.Count()} items");
             return Incidents;
         }
 
