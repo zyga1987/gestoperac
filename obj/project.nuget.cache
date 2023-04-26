@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FRwIO9iXU0XwMmoSFBmMcVtdpbj4/g0L4zlMeYJU3s8R7YydtQ43svaXN7ybClHMSmwEsdi/h2MpTwps9XmzDQ==",
+  "success": true,
+  "projectFilePath": "C:\\projects\\gestoperac\\build.proj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bac_f\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\bac_f\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net45\\1.0.3\\microsoft.netframework.referenceassemblies.net45.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

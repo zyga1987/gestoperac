@@ -7,7 +7,8 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/GestOperac.csproj",
+                "${workspaceFolder}/build.proj",
+                //"${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +20,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/GestOperac.csproj",
+                "${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +34,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/GestOperac.csproj"
+                "${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -46,12 +47,12 @@
             "dockerBuild": {
                 "tag": "gestoperac:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
-                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder}/GestOperac.Api/Dockerfile",
+                "context": "${workspaceFolder}/GestOperac.Api",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/GestOperac.csproj"
+                "appProject": "${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj"
             }
         },
         {
@@ -62,13 +63,13 @@
             ],
             "dockerBuild": {
                 "tag": "gestoperac:latest",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
-                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder}/GestOperac.Api/Dockerfile",
+                "context": "${workspaceFolder}/GestOperac.Api",
                 "platform": "linux/amd64",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/GestOperac.csproj"
+                "appProject": "${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj"
             }
         },
         {
@@ -79,7 +80,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/GestOperac.csproj",
+                "appProject": "${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj",
                 "enableDebugging": true,
                 "configureSsl": false
             }
@@ -92,7 +93,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/GestOperac.csproj"
+                "appProject": "${workspaceFolder}/GestOperac.Api/GestOperac.Api.csproj"
             }
         }
     ]

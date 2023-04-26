@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "5O+EbWEa10WwLeFd5KegcZCLMyOHg53VnPFlsNZOq4U=",
+  "Source": "GestOperac.Api",
+  "BasePath": "_content/GestOperac.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

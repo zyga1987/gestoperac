@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GestOperac.Api.props" />
+</Project>
